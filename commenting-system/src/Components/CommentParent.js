@@ -1,34 +1,42 @@
+import { v4 as uuid } from "uuid";
 import { useState } from "react";
 import "../Styles/Comments/comments.scss";
+import Form from "./Common/Form";
 import Comment from "./Comment";
+import { setItem, getItem } from "../Utils";
 
 const CommentParent = () => {
   const [comment, setComment] = useState("");
   const [name, setName] = useState("");
 
+  let commentList = getItem("commentList") || [];
+
   const commentSubmit = (e) => {
     e.preventDefault();
+    let newCommentObj = {
+      id: uuid(),
+      name,
+      text: comment,
+      date: new Date().toLocaleString(),
+    };
+    commentList.push(newCommentObj);
+    setItem("commentList", commentList);
+    setComment("");
+    setName("");
   };
+
   return (
     <div className="flex-center">
-      <form className="comment__form" onSubmit={commentSubmit}>
-        <div className="comment__form--heading">Comment</div>
-        <input
-          type="text"
-          className="comment__form--name"
-          placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <textarea
-          className="comment__form--text"
-          placeholder="Comment"
-          value={comment}
-          onChange={(e) => setComment(e.target.value)}
-        ></textarea>
-        <input type="submit" className="comment__form--submit" value="Submit" />
-      </form>
-      <Comment />
+      <Form
+        heading="Comments"
+        name={name}
+        setName={setName}
+        comment={comment}
+        type="submit"
+        setComment={setComment}
+        handleSubmit={commentSubmit}
+      />
+      <Comment commentList={commentList} />
     </div>
   );
 };
