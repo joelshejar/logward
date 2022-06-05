@@ -4,7 +4,7 @@ const Button = (props) => {
     <button
       type={type ?? "button"}
       onClick={onClick ? onClick : () => {}}
-      className="button"
+      className={`${type === "submit" ? "btn__submit" : "btn__default"}`}
     >
       {value}
     </button>

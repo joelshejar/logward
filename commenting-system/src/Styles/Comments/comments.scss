@@ -1,4 +1,159 @@
+.container {
+  max-width: 40rem;
+  margin: 0 auto;
+  text-align: center;
+  padding: 1rem 8rem;
+}
 .flex-center {
   display: flex;
+  align-items: center;
   justify-content: center;
+}
+.flex-between {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.comment__form {
+  min-height: 12rem;
+  max-width: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-radius: 4px;
+  background-color: rgb(240, 240, 240);
+  margin: 2rem 0rem;
+  &--error {
+    position: absolute;
+    left: 0;
+    color: rgb(255, 94, 82);
+    font-size: 0.75rem;
+  }
+  &--reply {
+    margin-left: 1rem;
+  }
+  &--wrapper {
+    position: relative;
+    width: 100%;
+  }
+  &--heading {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+  }
+  &--name {
+    width: 100%;
+    height: 1.5rem;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+  }
+  &--text {
+    width: 100%;
+    height: 3rem;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    margin-top: 1rem;
+  }
+  &--button {
+    position: absolute;
+    right: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.btn {
+  &__submit {
+    outline: 0;
+    border: 1px solid #007fff;
+    border-radius: 4px;
+    margin-top: 1rem;
+    width: 4rem;
+    height: 2rem;
+    color: #fff;
+    background-color: #007fff;
+    cursor: pointer;
+    &:hover {
+      background-color: #0059ff;
+    }
+  }
+  &__default {
+    outline: 0;
+    border: 0;
+    margin-top: 1rem;
+    background-color: rgb(240, 240, 240);
+    margin-right: 10px;
+    cursor: pointer;
+    color: #007fff;
+    &:hover {
+      color: #0059ff;
+    }
+  }
+}
+.comment__body {
+  min-height: 4rem;
+  max-width: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  border-radius: 4px;
+  background-color: rgb(240, 240, 240);
+  margin: 2rem 0rem;
+  &--name {
+    font-size: 1.15rem;
+    font-weight: bold;
+  }
+  &--text {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+  &--reply {
+    margin-left: 3rem;
+  }
+}
+
+.delete {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  position: absolute;
+  border-radius: 50%;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  background-image: url("../../Assets/delete.svg");
+  background-color: gray;
+  background-size: 15px;
+  background-repeat: no-repeat;
+  background-position: center;
+  right: -10px;
+  top: calc(50% - 10px);
+  cursor: pointer;
+  &:hover {
+    background-color: #fff;
+  }
+}
+.sort {
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-bottom: 0.75rem;
+  margin-left: 25rem;
+}
+.comment {
+  &__reply {
+    &--error {
+      position: absolute;
+      left: 10px;
+      bottom: 35px;
+      color: rgb(255, 94, 82);
+      font-size: 0.75rem;
+    }
+  }
 }
